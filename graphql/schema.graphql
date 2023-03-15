@@ -1,0 +1,80 @@
+type Order {
+  orderId: String
+  id: String
+  shop: String
+  email: String
+  closed_at: String
+  created_at: String
+  updated_at: String
+  number: String
+  note: String
+  token: String
+  total_price: String
+  subtotal_price: String
+  total_tax: String
+  currency: String
+  total_weight: String
+  confirmed: Boolean
+  name: String
+  line_items: AWSJSON
+  fulfillment_status: String
+  contact_email: String
+  shipping_address: AWSJSON
+  total_line_items_price: String
+  total_price_usd: String
+  user_id: String
+  location_id: String
+  phone: String
+  customer_locale: String
+  order_number: String
+  note_attributes: AWSJSON
+  is_delivery_created: Boolean
+  customer: AWSJSON
+}
+
+input GetOrderInput {
+  orderId: String
+  id: String
+  shop: String
+  email: String
+  closed_at: String
+  created_at: String
+  updated_at: String
+  number: String
+  note: String
+  token: String
+  total_price: String
+  subtotal_price: String
+  total_tax: String
+  currency: String
+  total_weight: String
+  confirmed: Boolean
+  name: String
+  line_items: AWSJSON
+  fulfillment_status: String
+  contact_email: String
+  shipping_address: AWSJSON
+  total_line_items_price: String
+  total_price_usd: String
+  user_id: String
+  location_id: String
+  phone: String
+  customer_locale: String
+  order_number: String
+  is_delivery_created: Boolean
+  note_attributes: AWSJSON
+  customer: AWSJSON
+}
+
+type Query {
+  getOrdersByShopAndOrderId(shop: String, orderId: String): Order
+  getOrdersByShop(shop: String): [Order]
+}
+type Mutation {
+  getOrder(input: GetOrderInput!): Order
+  updateOrder(shop: String, orderId: String, input: GetOrderInput!): Order
+}
+
+type Subscription {
+  onGetOrder(shop: String): Order @aws_subscribe(mutations: ["getOrder"])
+}

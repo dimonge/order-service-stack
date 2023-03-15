@@ -1,0 +1,29 @@
+{
+  "name": "orders_service",
+  "version": "0.1.0",
+  "bin": {
+    "orders_service": "bin/orders_service.js"
+  },
+  "scripts": {
+    "cdk": "cdk",
+    "synth": "CDK_DEPLOY_RESOURCE_STAGE=dev CDK_RESOURCE_STAGE=dev CDK_DEPLOY_REGION=eu-west-1 CDK_DEPLOY_STAGE=dev cdk synth",
+    "diff": "CDK_DEPLOY_RESOURCE_STAGE=dev CDK_RESOURCE_STAGE=dev CDK_DEPLOY_REGION=eu-west-1 CDK_DEPLOY_STAGE=dev cdk diff",
+    "deploy": "CDK_DEPLOY_RESOURCE_STAGE=dev CDK_RESOURCE_STAGE=dev CDK_DEPLOY_REGION=eu-west-1 CDK_DEPLOY_STAGE=dev cdk deploy",
+    "destroy": "CDK_DEPLOY_RESOURCE_STAGE=dev CDK_RESOURCE_STAGE=dev CDK_DEPLOY_REGION=eu-west-1 CDK_DEPLOY_STAGE=dev cdk destroy",
+    "bootstrap": "cdk bootstrap",
+    "test": "jest",
+    "watch": "npm start"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "1.69.0",
+    "aws-cdk": "1.72.0",
+    "jest": "^26.4.2"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-appsync": "1.72.0",
+    "@aws-cdk/aws-dynamodb": "1.72.0",
+    "@aws-cdk/aws-lambda": "1.72.0",
+    "@aws-cdk/aws-lambda-event-sources": "1.72.0",
+    "@aws-cdk/core": "1.72.0"
+  }
+}
